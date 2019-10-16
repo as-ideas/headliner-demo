@@ -1,0 +1,4 @@
+headliner
+streamlit==0.47.*
+tensorflow==2.0.*
+tensorflow-datasets==1.2.*
