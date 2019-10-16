@@ -1,8 +1,10 @@
 import streamlit as st
 
 from headliner.model.summarizer_transformer import SummarizerTransformer
+from headliner.model.summarizer_attention import SummarizerAttention
 
-summarizer = SummarizerTransformer.load('model/')
+summarizer_transformer = SummarizerTransformer.load('model/transformer')
+summarizer_attention = SummarizerAttention.load('model/attention')
 
 st.title('English-German Translator')
 st.markdown('''
@@ -12,5 +14,6 @@ the model is not doing well as this was not our main goals anyway. For creating 
 we use [Streamlit](https://streamlit.io/), a new open-source framework that lets users creating
 apps for machine learning projects very easily.
 ''')
-input = st.text_input(label='Type in some English words.', value='How are you?')
-st.write(summarizer.predict(input))
+input = st.text_input(label='Type in some English words.', value='I really like you.')
+st.write('(transformer) {}'.format(summarizer_transformer.predict(input)))
+st.write('(attention) {}'.format(summarizer_attention.predict(input)))

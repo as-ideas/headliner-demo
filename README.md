@@ -11,11 +11,11 @@ In fact, for the deployment, we only need six lines of code:
 import streamlit as st
 from headliner.model.summarizer_transformer import SummarizerTransformer
 
-summarizer = SummarizerTransformer.load('model/')
+summarizer_transformer = SummarizerTransformer.load('model/transformer')
 
 st.title('Type in some English')
 title = st.text_input('How are you?')
-st.write(summarizer.predict(title))
+st.write(summarizer_transformer.predict(title))
 ```
 
 ## 🚀 Quick Start
